@@ -1,11 +1,6 @@
 <?php
 $conn = new mysqli("localhost", "root", "", "jobwave");
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Fetch all jobs without filters
 $sql = "SELECT * FROM jobs ORDER BY posted_on DESC";
 $result = $conn->query($sql);
 
@@ -33,6 +28,8 @@ function timeAgo($datetime) {
         }
         .content {
             padding: 20px;
+            max-width: 900px;
+            margin: auto;
         }
         h2 {
             margin-bottom: 30px;
@@ -140,7 +137,7 @@ function timeAgo($datetime) {
                 </div>
 
                 <div class="actions">
-                    <a href='applied_jobs.php?id=<?= $row["id"] ?>' class='apply-btn'>🚀 Applied jobs</a>
+                    <a href='update_job1.php?id=<?= $row["id"] ?>' class='apply-btn'>🚀 Update</a>
                 </div>
             </div>
         <?php } ?>
